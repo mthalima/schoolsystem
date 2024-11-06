@@ -1,5 +1,8 @@
 package com.schoolsys.schooldemo;
 
+import com.schoolsys.schooldemo.dao.AppDAO;
+import com.schoolsys.schooldemo.entity.Instructor;
+import com.schoolsys.schooldemo.entity.InstructorDetail;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,14 +16,30 @@ public class SchooldemoApplication {
 	}
 
 	@Bean
-	public CommandLineRunner commandLineRunner(String[] args){
+	public CommandLineRunner commandLineRunner(AppDAO appDAO){
 
 		return runner ->{
-			System.out.println("Hello World");
+			createInstructor(appDAO);
 		};
 	}
 
+	private void createInstructor(AppDAO appDAO) {
 
+		//cria instrutor
+		Instructor tempInstructor =
+				new Instructor("zallera", "vibes", "zallera@email.com");
+
+		//cria detalhes do instrutor
+		InstructorDetail tempInstructorDetail =
+				new InstructorDetail("zalleravibes/ytchannel", "gameplayssincera");
+
+		//associa o objeto
+		tempInstructor.setInstructorDetail(tempInstructorDetail);
+
+		//salva o objeto
+		System.out.println("salvando o instrutor:" + tempInstructor);
+		appDAO.save(tempInstructor);
+	}
 
 
 }
