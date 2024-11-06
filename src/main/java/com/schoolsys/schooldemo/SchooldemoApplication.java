@@ -37,8 +37,11 @@ public class SchooldemoApplication {
 		tempInstructor.setInstructorDetail(tempInstructorDetail);
 
 		//salva o objeto
+		//isso tb salva os detalhes porque do CascadeType.ALL
 		System.out.println("salvando o instrutor:" + tempInstructor);
 		appDAO.save(tempInstructor);
+
+		System.out.println("SALVO!!");
 	}
 
 
