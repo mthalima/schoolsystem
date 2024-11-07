@@ -25,6 +25,7 @@ public class SchooldemoApplication {
 
 	private void createInstructor(AppDAO appDAO) {
 
+		/*
 		//cria instrutor
 		Instructor tempInstructor =
 				new Instructor("zallera", "vibes", "zallera@email.com");
@@ -32,6 +33,15 @@ public class SchooldemoApplication {
 		//cria detalhes do instrutor
 		InstructorDetail tempInstructorDetail =
 				new InstructorDetail("zalleravibes/ytchannel", "gameplayssincera");
+        */
+
+		//cria instrutor
+		Instructor tempInstructor =
+				new Instructor("belina@email.com", "belina", "vibes");
+
+		//cria detalhes do instrutor
+		InstructorDetail tempInstructorDetail =
+				new InstructorDetail("belinamake/ytchannel", "makes e papas");
 
 		//associa o objeto
 		tempInstructor.setInstructorDetail(tempInstructorDetail);

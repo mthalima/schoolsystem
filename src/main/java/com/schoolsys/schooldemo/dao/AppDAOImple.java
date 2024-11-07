@@ -3,10 +3,11 @@ package com.schoolsys.schooldemo.dao;
 import com.schoolsys.schooldemo.entity.Instructor;
 import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.swing.text.html.parser.Entity;
 
+@Repository
 public class AppDAOImple implements AppDAO{
 
 	//define campo para gerenciar entidade
