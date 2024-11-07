@@ -19,21 +19,25 @@ public class SchooldemoApplication {
 	public CommandLineRunner commandLineRunner(AppDAO appDAO){
 
 		return runner ->{
-			createInstructor(appDAO);
+			//createInstructor(appDAO);
+
+			findInstructor(appDAO);
 		};
 	}
 
+	private void findInstructor(AppDAO appDAO) {
+
+		int theId = 3;
+		System.out.println("instrutor:" + theId);
+
+		Instructor theInstructor = appDAO.findInstructorById(theId);
+
+		System.out.println("name:" + theInstructor.getFirstName());
+
+		System.out.println("detalhes:" + theInstructor.getInstructorDetail().getHobby());
+	}
+
 	private void createInstructor(AppDAO appDAO) {
-
-		/*
-		//cria instrutor
-		Instructor tempInstructor =
-				new Instructor("zallera", "vibes", "zallera@email.com");
-
-		//cria detalhes do instrutor
-		InstructorDetail tempInstructorDetail =
-				new InstructorDetail("zalleravibes/ytchannel", "gameplayssincera");
-        */
 
 		//cria instrutor
 		Instructor tempInstructor =
