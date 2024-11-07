@@ -32,5 +32,16 @@ public class AppDAOImple implements AppDAO{
 		return entityManager.find(Instructor.class, theId);
 	}
 
+	@Override
+	@Transactional
+	public void deleteInstructor(int theId, String name) {
+
+		//procura
+
+		//deleta
+
+
+	}
+
 
 }
