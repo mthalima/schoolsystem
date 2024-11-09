@@ -34,14 +34,13 @@ public class AppDAOImple implements AppDAO{
 
 	@Override
 	@Transactional
-	public void deleteInstructor(int theId, String name) {
-
+	public void deleteInstructor(int theId) {
 		//procura
+		Instructor theInstructor = entityManager.find(Instructor.class, theId);
 
 		//deleta
+		entityManager.remove(theInstructor);
 
-
+		System.out.println("Id" + theId + "Deletado");
 	}
-
-
 }

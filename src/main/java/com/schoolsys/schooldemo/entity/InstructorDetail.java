@@ -18,6 +18,8 @@ public class InstructorDetail {
 	@Column(name = "hobby")
 	private String hobby;
 
+	private Instructor instructor;
+
 	public InstructorDetail(){
 
 	}
@@ -29,6 +31,7 @@ public class InstructorDetail {
 
 
 	//getter e setters
+
 
 	public String getHobby() {
 		return hobby;
@@ -44,6 +47,16 @@ public class InstructorDetail {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	//add @OneToOne annotation
+	@OneToOne(mappedBy = "instructorDetail", cascade = CascadeType.ALL)
+	public Instructor getInstructor() {
+		return instructor;
+	}
+
+	public void setInstructor(Instructor instructor) {
+		this.instructor = instructor;
 	}
 
 	public String getYoutubeChannel() {

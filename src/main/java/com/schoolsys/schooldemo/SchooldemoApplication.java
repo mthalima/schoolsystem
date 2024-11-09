@@ -21,9 +21,13 @@ public class SchooldemoApplication {
 		return runner ->{
 			//createInstructor(appDAO);
 
-			findInstructor(appDAO);
+			//findInstructor(appDAO);
+			
+			deleteInstructor(appDAO);
 		};
 	}
+
+
 
 	private void findInstructor(AppDAO appDAO) {
 
@@ -56,6 +60,12 @@ public class SchooldemoApplication {
 		appDAO.save(tempInstructor);
 
 		System.out.println("SALVO!!");
+	}
+
+	private void deleteInstructor(AppDAO appDAO) {
+		int theId = 3;
+		System.out.println("Deletando instrutor de ID >>>>>>>>>>>>>>"+ theId);
+		appDAO.deleteInstructor(theId);
 	}
 
 
