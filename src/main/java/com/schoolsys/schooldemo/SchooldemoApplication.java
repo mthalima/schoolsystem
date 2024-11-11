@@ -19,20 +19,20 @@ public class SchooldemoApplication {
 	public CommandLineRunner commandLineRunner(AppDAO appDAO){
 
 		return runner ->{
-			createInstructor(appDAO);
+			//createInstructor(appDAO);
 
 			//findInstructor(appDAO);
 			
 			//deleteInstructor(appDAO);
 
-			//findInstructorDetail(appDAO);
+			findInstructorDetail(appDAO);
 		};
 	}
 
 	private void findInstructorDetail(AppDAO appDAO) {
 
 		//get the instructor detail
-		int theId =2;
+		int theId =1;
 
 		InstructorDetail tempInstructorDetail = appDAO.findInstructorDetailById(theId);
 
