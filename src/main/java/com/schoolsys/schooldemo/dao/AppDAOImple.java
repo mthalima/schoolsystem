@@ -56,6 +56,10 @@ public class AppDAOImple implements AppDAO{
 		//cata
 		InstructorDetail tempInstructorDetail = entityManager.find(InstructorDetail.class, theId);
 
+		//remove link bi-direcional
+		tempInstructorDetail.getInstructor().setInstructorDetail(null);
+
+
 		//deleta
 		entityManager.remove(tempInstructorDetail);
 	}

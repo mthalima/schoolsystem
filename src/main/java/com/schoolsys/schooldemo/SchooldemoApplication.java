@@ -25,8 +25,21 @@ public class SchooldemoApplication {
 			
 			//deleteInstructor(appDAO);
 
-			findInstructorDetail(appDAO);
+			//findInstructorDetail(appDAO);
+			
+			deleteInstructorDetail(appDAO);
 		};
+	}
+
+	private void deleteInstructorDetail(AppDAO appDAO) {
+
+		int theId =2;
+
+	System.out.println("Deletado detalhes de id: " + theId);
+
+	appDAO.deleteInstructorDetailById(theId);
+
+	System.out.println("FEITO >>>>>>>>>>>>>>>>");
 	}
 
 	private void findInstructorDetail(AppDAO appDAO) {
