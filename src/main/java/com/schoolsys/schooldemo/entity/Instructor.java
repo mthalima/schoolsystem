@@ -96,7 +96,6 @@ public class Instructor{
 		this.courses = courses;
 	}
 
-
 	//checa e cria lista de cursos
 	public void addCourse(Course tempCourse){
 
@@ -108,22 +107,6 @@ public class Instructor{
 
 		tempCourse.setInstructor(this);
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	@Override
 	public String toString() {

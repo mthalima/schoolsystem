@@ -19,7 +19,7 @@ public class SchooldemoApplication {
 	public CommandLineRunner commandLineRunner(AppDAO appDAO){
 
 		return runner ->{
-			//createInstructor(appDAO);
+			createInstructor(appDAO);
 
 			//findInstructor(appDAO);
 			
@@ -27,7 +27,7 @@ public class SchooldemoApplication {
 
 			//findInstructorDetail(appDAO);
 			
-			deleteInstructorDetail(appDAO);
+			//deleteInstructorDetail(appDAO);
 		};
 	}
 
