@@ -1,6 +1,7 @@
 package com.schoolsys.schooldemo.dao;
 
 import com.schoolsys.schooldemo.entity.Instructor;
+import com.schoolsys.schooldemo.entity.InstructorDetail;
 import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -19,7 +20,6 @@ public class AppDAOImple implements AppDAO{
 	public AppDAOImple(EntityManager entityManager){
 		this.entityManager = entityManager;
 	}
-
 
 	@Override
 	@Transactional
@@ -43,4 +43,11 @@ public class AppDAOImple implements AppDAO{
 
 		System.out.println("Id" + theId + "Deletado");
 	}
+
+	@Override
+	public InstructorDetail findInstructorDetailById(int theId) {
+		return entityManager.find(InstructorDetail.class, theId);
+	}
+
+
 }

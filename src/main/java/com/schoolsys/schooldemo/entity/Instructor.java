@@ -2,9 +2,11 @@ package com.schoolsys.schooldemo.entity;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
+
 @Entity
 @Table(name = "instructor")
-public class Instructor {
+public class Instructor{
 
 	//define os campos
 	@Id
@@ -79,4 +81,14 @@ public class Instructor {
 		this.lastName = lastName;
 	}
 
+	@Override
+	public String toString() {
+		return "Instructor{" +
+				"email='" + email + '\'' +
+				", id=" + id +
+				", firstName='" + firstName + '\'' +
+				", lastName='" + lastName + '\'' +
+				", instructorDetail=" + instructorDetail +
+				'}';
+	}
 }
