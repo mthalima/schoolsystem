@@ -8,7 +8,7 @@ import java.io.Serializable;
 @Table(name = "instructor")
 public class Instructor{
 
-	//define os campos
+	//Atributos
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
