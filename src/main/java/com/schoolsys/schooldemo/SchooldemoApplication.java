@@ -19,7 +19,7 @@ public class SchooldemoApplication {
 	public CommandLineRunner commandLineRunner(AppDAO appDAO){
 
 		return runner ->{
-			createInstructor(appDAO);
+			//createInstructor(appDAO);
 
 			//findInstructor(appDAO);
 			
@@ -28,7 +28,27 @@ public class SchooldemoApplication {
 			//findInstructorDetail(appDAO);
 			
 			//deleteInstructorDetail(appDAO);
+
+			createInstructorWithCourses(appDAO);
 		};
+	}
+
+	private void createInstructorWithCourses(AppDAO appDAO) {
+
+		//cria instrutor
+		Instructor tempInstructor =
+				new Instructor("zallera@email.com", "zalllera", "vibes");
+
+		//cria detalhes do instrutor
+		InstructorDetail tempInstructorDetail =
+				new InstructorDetail(
+						"zalleravibes@yt.com",
+						"hardware & gamming");
+
+
+
+		System.out.println("SALVO!!");
+	}
 	}
 
 	private void deleteInstructorDetail(AppDAO appDAO) {
