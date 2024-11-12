@@ -1,6 +1,7 @@
 package com.schoolsys.schooldemo;
 
 import com.schoolsys.schooldemo.dao.AppDAO;
+import com.schoolsys.schooldemo.entity.Course;
 import com.schoolsys.schooldemo.entity.Instructor;
 import com.schoolsys.schooldemo.entity.InstructorDetail;
 import org.springframework.boot.CommandLineRunner;
@@ -45,6 +46,20 @@ public class SchooldemoApplication {
 						"zalleravibes@yt.com",
 						"hardware & gamming");
 
+		//associa os detalhes com o instrutor
+		tempInstructor.setInstructorDetail(tempInstructorDetail);
+
+		//cria e associa cursos ao instrutor
+		Course tempCourse1 = new Course("Curso - Desenvolvedor Backend");
+		Course tempCourse2 = new Course("Curso - Mago do Hardware");
+
+		tempInstructor.addCourse(tempCourse1);
+		tempInstructor.addCourse(tempCourse2);
+
+		System.out.println("SALVANDO PROFESSOR: " + tempInstructor + "...");
+		System.out.println("CURSOS: " + tempInstructor.getCourses());
+		//salva no db (tb salva os cursos)
+		appDAO.save(tempInstructor);
 
 
 		System.out.println("SALVO!!");
