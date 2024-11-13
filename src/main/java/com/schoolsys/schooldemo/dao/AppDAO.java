@@ -1,7 +1,10 @@
 package com.schoolsys.schooldemo.dao;
 
+import com.schoolsys.schooldemo.entity.Course;
 import com.schoolsys.schooldemo.entity.Instructor;
 import com.schoolsys.schooldemo.entity.InstructorDetail;
+
+import java.util.List;
 
 public interface AppDAO {
 
@@ -15,6 +18,7 @@ public interface AppDAO {
 
 	void deleteInstructorDetailById(int theId);
 
+	List<Course> findCoursesByInstructor(int theId);
 
 
 

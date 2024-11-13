@@ -1,11 +1,15 @@
 package com.schoolsys.schooldemo.dao;
 
+import com.schoolsys.schooldemo.entity.Course;
 import com.schoolsys.schooldemo.entity.Instructor;
 import com.schoolsys.schooldemo.entity.InstructorDetail;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 
 @Repository
@@ -63,6 +67,24 @@ public class AppDAOImple implements AppDAO{
 		//deleta
 		entityManager.remove(tempInstructorDetail);
 	}
+
+
+	//esse metodo cria uma query que retorna a lista de cursos associada ao id
+	@Override
+	public List<Course> findCoursesByInstructor(int theId) {
+
+		//cria a query
+		TypedQuery<Course> query = entityManager.createQuery(
+				"from Course where instructor.id= :data", Course.class);
+
+		query.setParameter("data", theId);
+
+		//executa a query
+
+		List<Course> courses = query.getResultList();
+
+		return courses;
+	};
 
 
 }
