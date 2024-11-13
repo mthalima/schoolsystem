@@ -30,8 +30,23 @@ public class SchooldemoApplication {
 			
 			//deleteInstructorDetail(appDAO);
 
-			createInstructorWithCourses(appDAO);
+			//createInstructorWithCourses(appDAO);
+			
+			findInstructorWithCourses(appDAO);
 		};
+	}
+
+	private void findInstructorWithCourses(AppDAO appDAO) {
+
+		int theId=1;
+		System.out.println("Encontrando instrutor de id: " + theId);
+
+		Instructor tempInstructor = appDAO.findInstructorById(theId);
+
+		System.out.println("Nome: " + tempInstructor.getFirstName());
+		System.out.println("Nome: " + tempInstructor.getCourses());
+
+		System.out.println("FEITO!!!!!!!!");
 	}
 
 	private void createInstructorWithCourses(AppDAO appDAO) {
