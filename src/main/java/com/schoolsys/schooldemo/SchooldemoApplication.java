@@ -64,17 +64,16 @@ public class SchooldemoApplication {
 
 		System.out.println("SALVO!!");
 	}
-	}
 
 	private void deleteInstructorDetail(AppDAO appDAO) {
 
 		int theId =2;
 
-	System.out.println("Deletado detalhes de id: " + theId);
+		System.out.println("Deletado detalhes de id: " + theId);
 
-	appDAO.deleteInstructorDetailById(theId);
+		appDAO.deleteInstructorDetailById(theId);
 
-	System.out.println("FEITO >>>>>>>>>>>>>>>>");
+		System.out.println("FEITO >>>>>>>>>>>>>>>>");
 	}
 
 	private void findInstructorDetail(AppDAO appDAO) {
