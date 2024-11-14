@@ -42,7 +42,9 @@ public class SchooldemoApplication {
 
 			//updateInstructor(appDAO);
 
-			updateCourse(appDAO);
+			//updateCourse(appDAO);
+
+			deleteInstructor(appDAO);
 		};
 	}
 
@@ -220,9 +222,12 @@ public class SchooldemoApplication {
 	}
 
 	private void deleteInstructor(AppDAO appDAO) {
-		int theId = 3;
+		int theId = 1;
+
 		System.out.println("Deletando instrutor de ID >>>>>>>>>>>>>>"+ theId);
 		appDAO.deleteInstructor(theId);
+
+		System.out.println("FIM>>>>>>>>>>>>>>>");
 	}
 
 
