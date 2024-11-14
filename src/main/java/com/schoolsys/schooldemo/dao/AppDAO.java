@@ -22,7 +22,7 @@ public interface AppDAO {
 
 	Instructor findInstructorByIdJoinFetch(int theId);
 
-
+	void update(Instructor tempInstructor);
 
 
 

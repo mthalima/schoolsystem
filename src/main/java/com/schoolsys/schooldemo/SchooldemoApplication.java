@@ -38,8 +38,28 @@ public class SchooldemoApplication {
 
 			//findCoursesForInstructors(appDAO);
 
-			findInstructorWithCoursesJoinFetch(appDAO);
+			//findInstructorWithCoursesJoinFetch(appDAO);
+
+			updateInstructor(appDAO);
 		};
+	}
+
+	private void updateInstructor(AppDAO appDAO) {
+
+		int theId = 1;
+
+		//find the instructor
+		System.out.println("Procurando instrutor de id: "+ theId +" ...");
+		Instructor tempInstructor = appDAO.findInstructorById(theId);
+
+		//update the Instructor
+		System.out.println("Atualizando instrutor de id: "+ theId +" ...");
+		tempInstructor.setLastName("XICSO");
+
+		//chama o metodo de salvar no db
+		appDAO.update(tempInstructor);
+
+		System.out.println("Feito>>>>>>>>>>>>>>>>>>");
 	}
 
 	private void findInstructorWithCoursesJoinFetch(AppDAO appDAO) {

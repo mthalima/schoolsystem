@@ -102,7 +102,13 @@ public class AppDAOImple implements AppDAO{
 		return instructor;
 	}
 
+	@Override
+	@Transactional
+	public void update(Instructor tempInstructor) {
 
+		//update the instructor
+		entityManager.merge(tempInstructor);
+	}
 
 
 }
