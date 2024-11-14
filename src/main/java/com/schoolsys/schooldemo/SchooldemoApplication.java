@@ -36,8 +36,24 @@ public class SchooldemoApplication {
 			
 			//findInstructorWithCourses(appDAO);
 
-			findCoursesForInstructors(appDAO);
+			//findCoursesForInstructors(appDAO);
+
+			findInstructorWithCoursesJoinFetch(appDAO);
 		};
+	}
+
+	private void findInstructorWithCoursesJoinFetch(AppDAO appDAO) {
+
+		int theId = 1;
+
+		//find instructor
+		System.out.println("Procurando Instrutor de id: "+ theId +" ...");
+		Instructor tempInstructor = appDAO.findInstructorByIdJoinFetch(theId);
+
+		System.out.println("Instructor name: "+ tempInstructor.getFirstName());
+		System.out.println("Cursos: "+ tempInstructor.getCourses());
+
+		System.out.println("Feito>>>>>>>>>>>>>>>>>>");
 	}
 
 	private void findCoursesForInstructors(AppDAO appDAO) {
