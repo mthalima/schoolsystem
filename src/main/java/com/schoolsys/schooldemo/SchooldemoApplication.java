@@ -40,8 +40,24 @@ public class SchooldemoApplication {
 
 			//findInstructorWithCoursesJoinFetch(appDAO);
 
-			updateInstructor(appDAO);
+			//updateInstructor(appDAO);
+
+			updateCourse(appDAO);
 		};
+	}
+
+	private void updateCourse(AppDAO appDAO) {
+		int theId = 10;
+
+		//find the course
+		System.out.println("Procurando curso de id: "+ theId+ " ...");
+		Course tempCourse = appDAO.findCourseById(theId);
+
+		//update course
+		tempCourse.setTitle("Profissional game developer");
+		appDAO.update(tempCourse);
+
+		System.out.println("Feito>>>>>>>>>>>>>>>>>>");
 	}
 
 	private void updateInstructor(AppDAO appDAO) {

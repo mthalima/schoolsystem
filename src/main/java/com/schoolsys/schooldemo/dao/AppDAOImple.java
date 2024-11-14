@@ -106,8 +106,21 @@ public class AppDAOImple implements AppDAO{
 	@Transactional
 	public void update(Instructor tempInstructor) {
 
-		//update the instructor
+		//.merge atualiza uma entidade existente no db
 		entityManager.merge(tempInstructor);
+	}
+
+	@Override
+	@Transactional
+	public void update(Course tempCourse) {
+
+		//.merge atualiza uma entidade existente no db
+		entityManager.merge(tempCourse);
+	}
+
+	@Override
+	public Course findCourseById(int theId) {
+		return entityManager.find(Course.class, theId);
 	}
 
 
