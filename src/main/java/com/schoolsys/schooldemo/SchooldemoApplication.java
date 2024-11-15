@@ -4,6 +4,7 @@ import com.schoolsys.schooldemo.dao.AppDAO;
 import com.schoolsys.schooldemo.entity.Course;
 import com.schoolsys.schooldemo.entity.Instructor;
 import com.schoolsys.schooldemo.entity.InstructorDetail;
+import com.schoolsys.schooldemo.entity.Review;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -46,8 +47,26 @@ public class SchooldemoApplication {
 
 			//deleteInstructor(appDAO);
 
-			deleteCourse(appDAO);
+			//deleteCourse(appDAO);
+
+			createInstructorWithReviews(appDAO);
+
 		};
+	}
+
+	private void createInstructorWithReviews(AppDAO appDAO) {
+
+		//cria curso
+		Course tempCourse = new Course("Curso de vender curso(ATENÇÃO!!! isso é um scam)");
+
+		//add reviews
+		tempCourse.addReview(new Review("Lixo de curso, esse cara é um scammer"));
+		tempCourse.addReview(new Review("Curso de vender curso!"));
+		tempCourse.addReview(new Review("Comprei e me arrependi"));
+
+		//salva
+		appDAO.save(tempCourse);
+
 	}
 
 	private void deleteCourse(AppDAO appDAO) {
