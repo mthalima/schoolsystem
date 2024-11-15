@@ -49,9 +49,25 @@ public class SchooldemoApplication {
 
 			//deleteCourse(appDAO);
 
-			createInstructorWithReviews(appDAO);
+			//createInstructorWithReviews(appDAO);
 
+			retrieveCourseAndReviews(appDAO);
 		};
+	}
+
+	private void retrieveCourseAndReviews(AppDAO appDAO) {
+
+		//pega curso
+		int theId = 10;
+		Course tempCourse = appDAO.findCourseReviewsByCourseId(theId);
+
+		//printa curso
+		System.out.println(tempCourse);
+
+		//print reviews
+		System.out.println(tempCourse.getReviews());
+
+		System.out.println("Feito>>>>>>>>>>>>>>>>>>");
 	}
 
 	private void createInstructorWithReviews(AppDAO appDAO) {
@@ -67,6 +83,7 @@ public class SchooldemoApplication {
 		//salva
 		appDAO.save(tempCourse);
 
+		System.out.println("Feito>>>>>>>>>>>>>>>>>>");
 	}
 
 	private void deleteCourse(AppDAO appDAO) {
