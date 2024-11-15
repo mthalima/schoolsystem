@@ -3,6 +3,9 @@ package com.schoolsys.schooldemo.entity;
 import jakarta.persistence.*;
 import org.hibernate.annotations.ManyToAny;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "course")
 public class Course {
@@ -20,6 +23,9 @@ public class Course {
 	@JoinColumn(name = "instructor_id")
 	private Instructor instructor;
 
+	private List<Review> reviews;
+
+	//construtores
 	public Course(){
 
 	}
@@ -53,6 +59,22 @@ public class Course {
 	public void setTitle(String title) {
 		this.title = title;
 	}
+
+	public List<Review> getReviews() {
+		return reviews;
+	}
+
+	public void setReviews(List<Review> reviews) {
+		this.reviews = reviews;
+	}
+
+	public void addReview(Review theReview){
+		if(reviews == null){
+			reviews = new ArrayList<>();
+		}
+		reviews.add(theReview);
+	}
+
 
 	@Override
 	public String toString() {
