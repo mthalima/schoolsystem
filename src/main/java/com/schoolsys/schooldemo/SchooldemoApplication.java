@@ -5,6 +5,7 @@ import com.schoolsys.schooldemo.entity.Course;
 import com.schoolsys.schooldemo.entity.Instructor;
 import com.schoolsys.schooldemo.entity.InstructorDetail;
 import com.schoolsys.schooldemo.entity.Review;
+import jdk.swing.interop.SwingInterOpUtils;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -51,8 +52,21 @@ public class SchooldemoApplication {
 
 			//createInstructorWithReviews(appDAO);
 
-			retrieveCourseAndReviews(appDAO);
+			//retrieveCourseAndReviews(appDAO);
+
+			deleteCourseAndReviews(appDAO);
 		};
+	}
+
+	private void deleteCourseAndReviews(AppDAO appDAO) {
+
+		int theId = 10;
+
+		System.out.println("Deletando curso de id "+theId+ " ...");
+
+		appDAO.deleteCourseById(theId);
+
+		System.out.println("Feito>>>>>>>>>>>>>>>>>>");
 	}
 
 	private void retrieveCourseAndReviews(AppDAO appDAO) {
