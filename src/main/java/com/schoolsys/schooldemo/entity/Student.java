@@ -2,6 +2,9 @@ package com.schoolsys.schooldemo.entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "student")
 public class Student {
@@ -20,6 +23,26 @@ public class Student {
 
 	@Column(name = "email")
 	private String email;
+
+	@ManyToMany(
+			fetch = FetchType.LAZY,
+			cascade = {CascadeType.MERGE, CascadeType.PERSIST,
+					CascadeType.MERGE, CascadeType.DETACH,
+					CascadeType.REFRESH})
+	@JoinTable(
+			name = "course_student",
+			joinColumns = @JoinColumn(name = "student_id"),
+			inverseJoinColumns = @JoinColumn(name = "course_id"))
+	private List<Course> courses;
+
+
+	//add curso
+	public void addCourse(Course theCourse){
+		if (courses == null){
+			courses = new ArrayList<>();
+		}
+		courses.add(theCourse);
+	}
 
 	//constructors
 
@@ -68,9 +91,15 @@ public class Student {
 		this.id = id;
 	}
 
+	public List<Course> getCourses() {
+		return courses;
+	}
+
+	public void setCourses(List<Course> courses) {
+		this.courses = courses;
+	}
+
 	//toString()
-
-
 	@Override
 	public String toString() {
 		return "Student{" +

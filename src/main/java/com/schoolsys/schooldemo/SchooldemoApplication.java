@@ -1,10 +1,7 @@
 package com.schoolsys.schooldemo;
 
 import com.schoolsys.schooldemo.dao.AppDAO;
-import com.schoolsys.schooldemo.entity.Course;
-import com.schoolsys.schooldemo.entity.Instructor;
-import com.schoolsys.schooldemo.entity.InstructorDetail;
-import com.schoolsys.schooldemo.entity.Review;
+import com.schoolsys.schooldemo.entity.*;
 import jdk.swing.interop.SwingInterOpUtils;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -54,8 +51,34 @@ public class SchooldemoApplication {
 
 			//retrieveCourseAndReviews(appDAO);
 
-			deleteCourseAndReviews(appDAO);
+			//deleteCourseAndReviews(appDAO);
+
+			createCourseWithStudents(appDAO);
 		};
+	}
+
+	private void createCourseWithStudents(AppDAO appDAO) {
+
+		//cria um curso
+		Course tempCourse = new Course("Curso para desenvolvedores - JAVA Spring Boot");
+
+		//cria os estudantes associados a esse curso
+		Student tempStudent1 = new Student("Joao", "Pedro", "Joao@bolinha.com");
+		Student tempStudent2 = new Student("Maria", "Aparecida", "Mariinha@bolinha.com");
+		Student tempStudent3 = new Student("Belle", "Belinha", "bellibelinha@bolinha.com");
+
+		//add students ao curso
+		tempCourse.addStudent(tempStudent1);
+		tempCourse.addStudent(tempStudent2);
+		tempCourse.addStudent(tempStudent3);
+
+		//salva o curso e estudantes associados
+		System.out.println("SALVANDO CURSO E ESTUDANTES........");
+
+		appDAO.save(tempCourse);
+
+		System.out.println("FEITO>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+
 	}
 
 	private void deleteCourseAndReviews(AppDAO appDAO) {
