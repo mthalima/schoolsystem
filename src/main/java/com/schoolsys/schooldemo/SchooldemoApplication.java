@@ -47,6 +47,8 @@ public class SchooldemoApplication {
 
 			//deleteCourse(appDAO);
 
+			deleteStudent(appDAO);
+
 			//createInstructorWithReviews(appDAO);
 
 			//retrieveCourseAndReviews(appDAO);
@@ -58,7 +60,45 @@ public class SchooldemoApplication {
 			//findCourseAndStudents(appDAO);
 
 			//findStudentAndCourses(appDAO);
+			
+			//addMoreCoursesForStudent(appDAO);
 		};
+	}
+
+	private void deleteStudent(AppDAO appDAO) {
+
+		int theId = 1;
+
+		System.out.println("DELETANDO ESTUDANTE DE ID: " + theId);
+
+		appDAO.deleteStudentById(theId);
+
+		System.out.println("FEITO>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+
+	}
+
+	private void addMoreCoursesForStudent(AppDAO appDAO) {
+
+		//procura estudante
+		int theId = 3;
+		Student tempStudent = appDAO.findStudentAndCoursesByStudentId(theId);
+
+		//cria mais cursos para o estudante
+
+		Course tempCourse1 = new Course("Cozinha com o Chef");
+		Course tempCourse2 = new Course("Desenvolvimento de Jogos- GODOT");
+
+		tempStudent.addCourse(tempCourse1);
+		tempStudent.addCourse(tempCourse2);
+
+		System.out.println("ATUALIZANDO ESTUDANTE: " + tempStudent);
+		System.out.println("CURSOS ADICIONADOS: " + tempStudent.getCourses());
+
+		//salva com appDAO
+		appDAO.update(tempStudent);
+
+		System.out.println("FEITO>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+
 	}
 
 	private void findStudentAndCourses(AppDAO appDAO) {
@@ -153,7 +193,7 @@ public class SchooldemoApplication {
 	}
 
 	private void deleteCourse(AppDAO appDAO) {
-		int theId = 10;
+		int theId = 12;
 		System.out.println("Deletando curso de id "+theId+ " ...");
 
 		appDAO.deleteCourseById(theId);

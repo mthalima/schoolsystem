@@ -200,4 +200,21 @@ public class AppDAOImple implements AppDAO{
 
 		return student;
 	}
+
+	@Override
+	@Transactional
+	public void update(Student theStudent) {
+		entityManager.merge(theStudent);
+	}
+
+	@Override
+	@Transactional
+	public void deleteStudentById(int theId) {
+
+		//procura
+		Student tempStudent = entityManager.find(Student.class, theId);
+
+		//deleta
+		entityManager.remove(tempStudent);
+	}
 }
