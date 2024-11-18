@@ -3,6 +3,7 @@ package com.schoolsys.schooldemo.dao;
 import com.schoolsys.schooldemo.entity.Course;
 import com.schoolsys.schooldemo.entity.Instructor;
 import com.schoolsys.schooldemo.entity.InstructorDetail;
+import com.schoolsys.schooldemo.entity.Student;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -164,5 +165,39 @@ public class AppDAOImple implements AppDAO{
 		//executa a query
 		Course course = query.getSingleResult();
 		return  course;
+	}
+
+	@Override
+	public Course findCourseStudentsByCourseId(int theId) {
+
+		//cria query
+		TypedQuery<Course> query = entityManager.createQuery(
+				"select c from Course c "
+						+ "JOIN FETCH c.students "
+						+ "where c.id = :data", Course.class);
+
+		query.setParameter("data", theId);
+
+		//executa
+		Course course = query.getSingleResult();
+
+		return  course;
+	}
+
+	@Override
+	public Student findStudentAndCoursesByStudentId(int theId) {
+
+		//cria query
+		TypedQuery<Student> query = entityManager.createQuery(
+				"select s from Student s "
+						+ "JOIN FETCH s.courses "
+						+ "where s.id = :data", Student.class);
+
+		query.setParameter("data", theId);
+
+		//executa
+		Student student = query.getSingleResult();
+
+		return student;
 	}
 }

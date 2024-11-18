@@ -3,6 +3,7 @@ package com.schoolsys.schooldemo.dao;
 import com.schoolsys.schooldemo.entity.Course;
 import com.schoolsys.schooldemo.entity.Instructor;
 import com.schoolsys.schooldemo.entity.InstructorDetail;
+import com.schoolsys.schooldemo.entity.Student;
 
 import java.util.List;
 
@@ -33,4 +34,8 @@ public interface AppDAO {
 	void save(Course theCourse);
 
 	Course findCourseReviewsByCourseId(int theId);
+
+	Course findCourseStudentsByCourseId(int theId);
+
+	Student findStudentAndCoursesByStudentId(int theId);
 }

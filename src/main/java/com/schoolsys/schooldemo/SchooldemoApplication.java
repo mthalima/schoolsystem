@@ -53,9 +53,38 @@ public class SchooldemoApplication {
 
 			//deleteCourseAndReviews(appDAO);
 
-			createCourseWithStudents(appDAO);
+			//createCourseWithStudents(appDAO);
+
+			//findCourseAndStudents(appDAO);
+
+			//findStudentAndCourses(appDAO);
 		};
 	}
+
+	private void findStudentAndCourses(AppDAO appDAO) {
+
+		int theId = 3;
+
+		Student tempStudent = appDAO.findStudentAndCoursesByStudentId(theId);
+		System.out.println("ESTUDANTE: " + tempStudent);
+		System.out.println("CURSOS: " + tempStudent.getCourses());
+
+		System.out.println("FEITO>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+	}
+
+	private void findCourseAndStudents(AppDAO appDAO) {
+
+		int theId = 10;
+
+		Course tempCourse = appDAO.findCourseStudentsByCourseId(theId);
+
+		System.out.println("Curso: " + tempCourse);
+		System.out.println("Estudantes: " + tempCourse.getStudents());
+
+		System.out.println("FEITO>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+
+	}
+
 
 	private void createCourseWithStudents(AppDAO appDAO) {
 
@@ -63,9 +92,9 @@ public class SchooldemoApplication {
 		Course tempCourse = new Course("Curso para desenvolvedores - JAVA Spring Boot");
 
 		//cria os estudantes associados a esse curso
-		Student tempStudent1 = new Student("Joao", "Pedro", "Joao@bolinha.com");
-		Student tempStudent2 = new Student("Maria", "Aparecida", "Mariinha@bolinha.com");
-		Student tempStudent3 = new Student("Belle", "Belinha", "bellibelinha@bolinha.com");
+		Student tempStudent1 = new Student("Joao", "Joao@bolinha.com", "Pedro");
+		Student tempStudent2 = new Student("Maria", "Mariinha@bolinha.com", "Mariinha");
+		Student tempStudent3 = new Student("Belle", "bellibelinha@bolinha.com", "Belinha");
 
 		//add students ao curso
 		tempCourse.addStudent(tempStudent1);
