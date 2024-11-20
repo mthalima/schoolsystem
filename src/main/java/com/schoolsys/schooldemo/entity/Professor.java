@@ -98,4 +98,17 @@ public class Professor {
 	public void setTurmas(List<Turma> turmas) {
 		this.turmas = turmas;
 	}
+
+	@Override
+	public String toString() {
+		return "Professor{" +
+				"id=" + id +
+				", nome='" + nome + '\'' +
+				", sobrenome='" + sobrenome + '\'' +
+				", email='" + email + '\'' +
+				", telefone='" + telefone + '\'' +
+				", materias=" + materias +
+				", turmas=" + turmas +
+				'}';
+	}
 }

@@ -18,6 +18,24 @@ public class Materia {
 	@Column(name = "cargaHoraria")
 	private int cargaHoraria;
 
-	@Column(name = "detalhesMaterias")
-	private String detalhesMateria;
+	@Column(name = "descricaoMateria")
+	private String descricaoMateria;
+
+	//CONSTRUTORES
+	public Materia() {
+	}
+
+	public Materia(String nomeMateria, int cargaHoraria, String descricaoMateria) {
+		this.nomeMateria = nomeMateria;
+		this.cargaHoraria = cargaHoraria;
+		this.descricaoMateria = descricaoMateria;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 }
